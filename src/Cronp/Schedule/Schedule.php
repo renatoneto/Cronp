@@ -114,7 +114,14 @@ class Schedule
         $command = $this->getPathname();
 
         if ($this->args) {
-            $command .= ' ' . implode(' ', $this->getArgs());
+
+            $args = [];
+
+            foreach ($this->getArgs() as $arg) {
+                $args[] = ($arg == '') ? '""' : $arg;
+            }
+
+            $command .= ' ' . implode(' ', $args);
         }
 
         return $command;
