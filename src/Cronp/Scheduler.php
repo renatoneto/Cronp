@@ -129,8 +129,13 @@ class Scheduler implements Countable
 
         }
 
-        $this->persist->save($this->getCollection());
+        $this->save();
         return true;
+    }
+
+    public function save()
+    {
+        $this->persist->save($this->getCollection());
     }
 
 }
