@@ -4,9 +4,17 @@ namespace Cronp\Schedule;
 use Countable;
 use Iterator;
 
+/**
+ * Class Collection
+ * @package Cronp\Schedule
+ * @author Renato Neto
+ */
 class Collection implements Countable, Iterator
 {
 
+    /**
+     * @var array
+     */
     protected $collection = [];
 
     /**
@@ -71,6 +79,11 @@ class Collection implements Countable, Iterator
         return count($this->collection);
     }
 
+    /**
+     * @param Schedule $schedule
+     * @param null $key
+     * @return bool
+     */
     public function add(Schedule $schedule, $key = null)
     {
         $key = ($key) ?: md5($schedule->getCommand());
@@ -79,6 +92,11 @@ class Collection implements Countable, Iterator
         return true;
     }
 
+    /**
+     * @param Schedule $schedule
+     * @param null $key
+     * @return bool
+     */
     public function remove(Schedule $schedule, $key = null)
     {
         $key = ($key) ?: md5($schedule->getCommand());

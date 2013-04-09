@@ -3,11 +3,22 @@ namespace Cronp\Persist;
 
 use Cronp\Schedule\Collection;
 
+/**
+ * Class StreamPersist
+ * @package Cronp\Persist
+ * @author Renato Neto
+ */
 class StreamPersist implements SchedulePersist
 {
 
+    /**
+     * @var resource
+     */
     protected $stream;
 
+    /**
+     * @param $stream
+     */
     public function __construct($stream)
     {
         if (!is_resource($stream) || get_resource_type($stream) !== 'stream') {
@@ -17,6 +28,11 @@ class StreamPersist implements SchedulePersist
         $this->stream = $stream;
     }
 
+    /**
+     * @param Collection $schedules
+     * @return bool|mixed
+     * @throws \RuntimeException
+     */
     public function save(Collection $schedules)
     {
         @ftruncate($this->stream, 0);

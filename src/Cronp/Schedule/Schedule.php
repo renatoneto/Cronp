@@ -1,6 +1,11 @@
 <?php
 namespace Cronp\Schedule;
 
+/**
+ * Class Schedule
+ * @package Cronp\Schedule
+ * @author Renato Neto
+ */
 class Schedule
 {
 
@@ -24,6 +29,11 @@ class Schedule
      */
     protected $executeOn;
 
+    /**
+     * @param $path
+     * @param $interval
+     * @param array $args
+     */
     public function __construct($path, $interval, array $args = [])
     {
         $this->setPathname($path);
