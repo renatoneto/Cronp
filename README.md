@@ -1,4 +1,4 @@
 Cronp
 =====
 
-PHP Cron
+Similar CRON implementation written in PHP
